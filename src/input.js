@@ -1,4 +1,4 @@
-const { question: ask, keyInSelect } = require('readline-sync');
+const { question: ask, keyInSelect, questionInt: askNumber } = require('readline-sync');
 
 function askAndReturnSearchTerm() {
   return ask('Type a Wikipedia search term: ');
@@ -12,7 +12,12 @@ function askAndReturnPrefix() {
   return prefix;
 }
 
+function askAndReturnMaxSentences() {
+  return askNumber('How many sentences would you like? ');
+}
+
 module.exports = {
   askAndReturnSearchTerm,
   askAndReturnPrefix,
+  askAndReturnMaxSentences,
 };
