@@ -9,7 +9,7 @@ async function start() {
 
   await textBot(videoContent);
 
-  console.log(videoContent);
+  // console.log(videoContent);
 }
 
 start();
