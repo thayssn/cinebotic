@@ -7,10 +7,10 @@ const nlu = new NaturalLanguageUnderstanding({
   url: credentials.watsonnlu.url,
 });
 
-async function fetchWatsonAndReturnKeywords(sentence) {
+async function fetchWatsonAndReturnKeywords(text) {
   return new Promise((resolve, reject) => {
     nlu.analyze({
-      text: sentence.text,
+      text,
       features: {
         keywords: {},
       },

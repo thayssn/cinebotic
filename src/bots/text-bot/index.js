@@ -17,8 +17,7 @@ async function textBot(videoContent) {
   console.log(`\x1b[33m[text-bot]\x1b[0m => Getting the first ${videoContent.maxSentences} sentences...`);
   limitMaxSentences(videoContent);
   console.log('\x1b[33m[text-bot]\x1b[0m => Fetching keywords from Watson');
-  const firstSentenceKeywords = await fetchWatsonAndReturnKeywords(videoContent.sentences[0]);
-  console.log(firstSentenceKeywords);
+  await fetchKeywordsForAllSentences(videoContent);
 
   console.log('\x1b[33m[text-bot]\x1b[0m => Finished');
 }
@@ -53,6 +52,12 @@ function breakSourceIntoSentences(videoContent) {
 
 function limitMaxSentences(videoContent) {
   videoContent.sentences = videoContent.sentences.slice(0, videoContent.maxSentences);
+}
+
+async function fetchKeywordsForAllSentences(videoContent) {
+  for (const sentence of videoContent.sentences) {
+    sentence.keywords = await fetchWatsonAndReturnKeywords(sentence.text);
+  }
 }
 
 

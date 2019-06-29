@@ -17,6 +17,8 @@ module.exports = {
   rules: {
     "no-use-before-define": "off",
     "no-console": "off",
-    "no-param-reassign": "off"
+    "no-param-reassign": "off",
+    "no-restricted-syntax": "off",
+    "no-await-in-loop": "off"
   },
 };

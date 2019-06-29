@@ -9,7 +9,7 @@ async function start() {
   videoContent.maxSentences = askAndReturnMaxSentences();
   await textBot(videoContent);
 
-  console.log(videoContent);
+  console.log(JSON.stringify(videoContent, false, 4));
 }
 
 start();
