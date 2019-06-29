@@ -1,10 +1,14 @@
+const { textBot } = require('./bots');
 const { askAndReturnSearchTerm, askAndReturnPrefix } = require('./input');
 
-function start() {
+async function start() {
   const videoContent = {};
 
   videoContent.searchTerm = askAndReturnSearchTerm();
   videoContent.prefix = askAndReturnPrefix();
+
+  await textBot(videoContent);
+
   console.log(videoContent);
 }
 

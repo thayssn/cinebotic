@@ -15,5 +15,8 @@ module.exports = {
     ecmaVersion: 2018,
   },
   rules: {
+    "no-use-before-define": "off",
+    "no-console": "off",
+    "no-param-reassign": "off"
   },
 };
