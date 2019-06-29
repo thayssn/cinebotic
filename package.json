@@ -2,11 +2,16 @@
   "name": "cinebotic",
   "version": "1.0.0",
   "description": "A robot to create videos and upload to youtube",
-  "main": "index.js",
+  "main": "./src/index.js",
   "repository": "git@github.com:thayssn/cinebotic.git",
   "author": "Thays <thays.sn@hotmail.com>",
   "license": "MIT",
-  "dependencies": {},
+  "scripts": {
+    "start": "node ./src/index.js"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.9"
+  },
   "devDependencies": {
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
