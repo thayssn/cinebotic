@@ -1,11 +1,9 @@
-const { textBot, inputBot } = require('./bots');
+const textBot = require('./bots/text-bot');
+const inputBot = require('./bots/input-bot');
 
 async function start() {
-  const videoContent = {};
-  inputBot(videoContent);
-  await textBot(videoContent);
-
-  console.log(JSON.stringify(videoContent, false, 4));
+  inputBot();
+  await textBot();
 }
 
 start();

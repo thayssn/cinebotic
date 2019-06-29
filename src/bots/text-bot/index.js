@@ -3,10 +3,13 @@ const { sentences: toSentences } = require('sbd');
 const credentials = require('../../../credentials.json');
 const { removeBlankLinesAndMarkdown, removeDatesInParentheses } = require('./sanitizer');
 const { fetchWatsonAndReturnKeywords } = require('./watson-nlu');
+const state = require('../state-bot');
 
 const authorizedAlgorithmia = algorithmia(credentials.algorithmia.apikey);
 
-async function robot(videoContent) {
+async function robot() {
+  const videoContent = state.load();
+  console.log('\x1b[33m[text-bot]\x1b[0m => Started');
   console.log(`\x1b[33m[text-bot]\x1b[0m => Fetching content for: ${videoContent.prefix} ${videoContent.searchTerm}...`);
   await fetchSourceContent(videoContent);
   console.log('\x1b[33m[text-bot]\x1b[0m => Sanitizing original content...');
@@ -17,8 +20,8 @@ async function robot(videoContent) {
   limitMaxSentences(videoContent);
   console.log('\x1b[33m[text-bot]\x1b[0m => Fetching keywords from Watson');
   await fetchKeywordsForAllSentences(videoContent);
-
   console.log('\x1b[33m[text-bot]\x1b[0m => Finished');
+  state.save(videoContent);
 }
 
 async function fetchSourceContent(videoContent) {

@@ -1,9 +1,14 @@
 const { question: ask, keyInSelect, questionInt: askNumber } = require('readline-sync');
+const state = require('../state-bot');
 
-function robot(videoContent) {
+function robot() {
+  const videoContent = {};
+  console.log('\x1b[34m[input-bot]\x1b[0m => Started');
   videoContent.searchTerm = askAndReturnSearchTerm();
   videoContent.prefix = askAndReturnPrefix();
   videoContent.maxSentences = askAndReturnMaxSentences();
+  console.log('\x1b[34m[input-bot]\x1b[0m => Finished');
+  state.save(videoContent);
 }
 function askAndReturnSearchTerm() {
   return ask('Type a Wikipedia search term: ');
