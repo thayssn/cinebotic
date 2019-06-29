@@ -1,12 +1,8 @@
-const { textBot } = require('./bots');
-const { askAndReturnSearchTerm, askAndReturnPrefix, askAndReturnMaxSentences } = require('./input');
+const { textBot, inputBot } = require('./bots');
 
 async function start() {
   const videoContent = {};
-
-  videoContent.searchTerm = askAndReturnSearchTerm();
-  videoContent.prefix = askAndReturnPrefix();
-  videoContent.maxSentences = askAndReturnMaxSentences();
+  inputBot(videoContent);
   await textBot(videoContent);
 
   console.log(JSON.stringify(videoContent, false, 4));

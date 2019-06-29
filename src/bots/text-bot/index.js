@@ -6,8 +6,7 @@ const { fetchWatsonAndReturnKeywords } = require('./watson-nlu');
 
 const authorizedAlgorithmia = algorithmia(credentials.algorithmia.apikey);
 
-
-async function textBot(videoContent) {
+async function robot(videoContent) {
   console.log(`\x1b[33m[text-bot]\x1b[0m => Fetching content for: ${videoContent.prefix} ${videoContent.searchTerm}...`);
   await fetchSourceContent(videoContent);
   console.log('\x1b[33m[text-bot]\x1b[0m => Sanitizing original content...');
@@ -61,4 +60,4 @@ async function fetchKeywordsForAllSentences(videoContent) {
 }
 
 
-module.exports = textBot;
+module.exports = robot;
