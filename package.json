@@ -1,0 +1,9 @@
+{
+  "name": "cinebotic",
+  "version": "1.0.0",
+  "description": "A robot to create videos and upload to youtube",
+  "main": "index.js",
+  "repository": "git@github.com:thayssn/cinebotic.git",
+  "author": "Thays <thays.sn@hotmail.com>",
+  "license": "MIT"
+}
