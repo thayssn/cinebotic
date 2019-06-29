@@ -6,10 +6,9 @@ async function start() {
 
   videoContent.searchTerm = askAndReturnSearchTerm();
   videoContent.prefix = askAndReturnPrefix();
-
   await textBot(videoContent);
 
-  // console.log(videoContent);
+  console.log(videoContent);
 }
 
 start();

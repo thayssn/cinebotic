@@ -1,19 +1,19 @@
 const algorithmia = require('algorithmia');
-const { algorithmia: { apikey } } = require('../../../credentials.json');
+const { sentences: toSentences } = require('sbd');
+const { algorithmia: algorithmiaCredentials } = require('../../../credentials.json');
 const { removeBlankLinesAndMarkdown, removeDatesInParentheses } = require('./sanitizer');
 
-const authAlgorithmia = algorithmia(apikey);
+const authorizedAlgorithmia = algorithmia(algorithmiaCredentials.apikey);
 
-async function robot(videoContent) {
+async function textBot(videoContent) {
   console.log(`\x1b[33m[text-bot]\x1b[0m => Fetching content for: ${videoContent.prefix} ${videoContent.searchTerm}`);
   await fetchSourceContent(videoContent);
-
   sanitizeSourceContent(videoContent);
-  // breakSourceIntoSentences(videoContent);
+  breakSourceIntoSentences(videoContent);
 }
 
 async function fetchSourceContent(videoContent) {
-  const wikipediaAlgo = authAlgorithmia.algo('web/WikipediaParser/0.1.2?timeout=300');
+  const wikipediaAlgo = authorizedAlgorithmia.algo('web/WikipediaParser/0.1.2?timeout=300');
   try {
     const wikipediaResponse = await wikipediaAlgo.pipe(videoContent.searchTerm);
     const wikipediaContent = await wikipediaResponse.get();
@@ -30,4 +30,14 @@ function sanitizeSourceContent(videoContent) {
   videoContent.sanitizedSourceContent = withoutDatesInParentheses;
 }
 
-module.exports = robot;
+function breakSourceIntoSentences(videoContent) {
+  const sentences = toSentences(videoContent.sanitizedSourceContent);
+
+  videoContent.sentences = sentences.map(sentence => ({
+    text: sentence,
+    keywords: [],
+    images: [],
+  }));
+}
+
+module.exports = textBot;
