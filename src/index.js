@@ -8,7 +8,7 @@ async function start() {
   videoContent.prefix = askAndReturnPrefix();
   await textBot(videoContent);
 
-  console.log(videoContent);
+  // console.log(videoContent);
 }
 
 start();
