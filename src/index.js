@@ -8,7 +8,7 @@ async function start() {
   await text();
   await images();
 
-  console.dir(state.load(), { depht: null });
+  // console.dir(state.load(), { depht: null });
 }
 
 start();
