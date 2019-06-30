@@ -9,6 +9,9 @@ async function start() {
   await text();
   await images();
   await video();
+
+  const videoContent = state.load();
+  state.saveScript(videoContent);
 }
 
 start();

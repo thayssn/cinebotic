@@ -1,11 +1,19 @@
 const fs = require('fs');
 
 const videoContentFilePath = './src/bots/state-bot/state.json';
+const scriptFilePath = './src/bots/state-bot/after-effects-script.js';
 
 function save(videoContent) {
   console.log('\x1b[35m[state-bot] => Saving state\x1b[0m');
-  const stringVideoContent = JSON.stringify(videoContent);
-  fs.writeFileSync(videoContentFilePath, stringVideoContent, 'utf-8');
+  const videoContentString = JSON.stringify(videoContent);
+  fs.writeFileSync(videoContentFilePath, videoContentString, 'utf-8');
+}
+
+function saveScript(videoContent) {
+  console.log('\x1b[35m[state-bot] => Saving script\x1b[0m');
+  const videoContentString = JSON.stringify(videoContent);
+  const scriptString = `var content=${videoContentString}`;
+  fs.writeFileSync(scriptFilePath, scriptString, 'utf-8');
 }
 
 function load() {
@@ -17,5 +25,6 @@ function load() {
 
 module.exports = {
   save,
+  saveScript,
   load,
 };
