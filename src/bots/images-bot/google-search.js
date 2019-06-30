@@ -8,9 +8,8 @@ async function fetchAndReturnImagesLinks(query) {
     auth: credentials.googlesearch.apikey,
     cx: credentials.googlesearch.cseId,
     searchType: 'image',
-    imgSize: 'large',
     q: query,
-    num: 5,
+    num: 2,
   });
   const imagesUrls = searchResults.items.map(item => item.link);
   return imagesUrls;
