@@ -1,4 +1,5 @@
 node_modules
 credentials.json
 src/bots/state-bot/state.json
+src/bots/state-bot/after-effects-script.js
 src/images
