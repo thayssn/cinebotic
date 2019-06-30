@@ -3,7 +3,7 @@ const gm = require('gm').subClass({ imageMagick: true });
 async function convertImage(sentenceIndex) {
   return new Promise((resolve, reject) => {
     const inputFile = `./src/images/${sentenceIndex}-original.png`;
-    console.log(`\x1b[32m[video-bot]\x1b[0m => Converting [${inputFile}]...`);
+    console.log(`\x1b[31m[video-bot]\x1b[0m => Converting [${inputFile}]...`);
     const convertedFile = `./src/images/${sentenceIndex}-converted.png`;
     const width = 1920;
     const height = 1080;
@@ -32,7 +32,7 @@ async function convertImage(sentenceIndex) {
         if (error) {
           reject(error);
         }
-        console.log('\x1b[32m[video-bot]\x1b[0m => Image converted');
+        console.log('\x1b[31m[video-bot]\x1b[0m => Image converted');
         resolve();
       });
   });
@@ -40,7 +40,7 @@ async function convertImage(sentenceIndex) {
 async function createSentenceImage(sentenceIndex, sentenceText) {
   return new Promise((resolve, reject) => {
     const outputFile = `./src/images/${sentenceIndex}-sentence.png`;
-    console.log(`\x1b[32m[video-bot]\x1b[0m => Creating [${outputFile}]`);
+    console.log(`\x1b[31m[video-bot]\x1b[0m => Creating [${outputFile}]`);
     const templateSettings = {
       0: {
         size: '1920x400',
@@ -99,7 +99,7 @@ async function createSentenceImage(sentenceIndex, sentenceText) {
         if (error) {
           reject(error);
         }
-        console.log('\x1b[32m[video-bot]\x1b[0m => Sentence created');
+        console.log('\x1b[31m[video-bot]\x1b[0m => Sentence created');
         resolve();
       });
   });

@@ -3,11 +3,11 @@ const state = require('../state-bot');
 
 function robot() {
   const videoContent = {};
-  console.log('\x1b[34m[input-bot]\x1b[0m => Started');
+  console.log('\x1b[34m[input-bot] => Started');
   videoContent.searchTerm = askAndReturnSearchTerm();
   videoContent.prefix = askAndReturnPrefix();
   videoContent.maxSentences = askAndReturnMaxSentences();
-  console.log('\x1b[34m[input-bot]\x1b[0m => Finished');
+  console.log('\x1b[34m[input-bot] => Finished');
   state.save(videoContent);
 }
 function askAndReturnSearchTerm() {

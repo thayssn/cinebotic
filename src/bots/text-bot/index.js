@@ -9,7 +9,7 @@ const authorizedAlgorithmia = algorithmia(credentials.algorithmia.apikey);
 
 async function robot() {
   const videoContent = state.load();
-  console.log('\x1b[33m[text-bot]\x1b[0m => Started');
+  console.log('\x1b[33m[text-bot] => Started');
   console.log(`\x1b[33m[text-bot]\x1b[0m => Fetching content for: ${videoContent.prefix} ${videoContent.searchTerm}...`);
   await fetchSourceContent(videoContent);
   console.log('\x1b[33m[text-bot]\x1b[0m => Sanitizing original content...');
@@ -20,7 +20,7 @@ async function robot() {
   limitMaxSentences(videoContent);
   console.log('\x1b[33m[text-bot]\x1b[0m => Fetching keywords from Watson');
   await fetchKeywordsForAllSentences(videoContent);
-  console.log('\x1b[33m[text-bot]\x1b[0m => Finished');
+  console.log('\x1b[33m[text-bot] => Finished');
   state.save(videoContent);
 }
 

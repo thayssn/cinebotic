@@ -5,13 +5,13 @@ const state = require('../state-bot');
 
 async function robot() {
   const videoContent = state.load();
-  console.log('\x1b[32m[images-bot]\x1b[0m => Started');
+  console.log('\x1b[32m[images-bot] => Started');
   console.log('\x1b[32m[images-bot]\x1b[0m => Cleaning images folder ');
   await cleanImagesFolder();
   console.log('\x1b[32m[images-bot]\x1b[0m => Fetching images from Google');
   await fetchImagesOfAllSentences(videoContent);
   await downloadImagesOfAllSentences(videoContent);
-  console.log('\x1b[32m[images-bot]\x1b[0m => Finished');
+  console.log('\x1b[32m[images-bot] => Finished');
   state.save(videoContent);
 }
 
