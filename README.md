@@ -16,3 +16,6 @@ https://algorithmia.com/
 
 #### Watson Natural Language Understanding
 https://cloud.ibm.com/catalog/services/natural-language-understanding
+
+## ImageMagick
+This project requires ImageMagick to run.
