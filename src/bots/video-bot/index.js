@@ -12,7 +12,7 @@ async function robot() {
   console.log('\x1b[31m[video-bot]\x1b[0m => Creating YouTube thumbnail');
   await createYouTubeThumbnail(videoContent);
   console.log('\x1b[31m[video-bot] => Finished');
-  state.save(videoContent);
+  createAfterEffectsScripts(videoContent);
 }
 
 async function convertAllImages(videoContent) {
@@ -50,6 +50,10 @@ async function createYouTubeThumbnail() {
         resolve();
       });
   });
+}
+
+async function createAfterEffectsScripts(videoContent) {
+  state.saveScript(videoContent);
 }
 
 module.exports = robot;
