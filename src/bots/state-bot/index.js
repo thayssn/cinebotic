@@ -1,7 +1,7 @@
 const fs = require('fs');
 
-const videoContentFilePath = './src/bots/state-bot/state.json';
-const scriptFilePath = './src/bots/state-bot/after-effects-script.js';
+const videoContentFilePath = './src/video-content/state.json';
+const scriptFilePath = './src/video-content/after-effects-script.js';
 
 function save(videoContent) {
   console.log('\x1b[35m[state-bot] => Saving state\x1b[0m');
