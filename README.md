@@ -1,5 +1,7 @@
 # Cinebotic
 A robot to create and upload videos to youtube.
+Thanks to Filipe Deschamps's tutorial. You can check his project here:
+https://github.com/filipedeschamps/video-maker
 
 ## Startup
 ```
