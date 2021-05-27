@@ -11,7 +11,7 @@ async function robot() {
   const videoContent = state.load();
   console.log('\x1b[33m[text-bot] => Started');
   console.log(`\x1b[33m[text-bot]\x1b[0m => Fetching content for: ${videoContent.prefix} ${videoContent.searchTerm}...`);
-  await fetchSourceContent(videoContent);
+  await fetchSourceContent(videoContent).catch(err => console.log(err));
   console.log('\x1b[33m[text-bot]\x1b[0m => Sanitizing original content...');
   sanitizeSourceContent(videoContent);
   console.log('\x1b[33m[text-bot]\x1b[0m => Separating content into sentences...');
@@ -19,7 +19,7 @@ async function robot() {
   console.log(`\x1b[33m[text-bot]\x1b[0m => Getting the first ${videoContent.maxSentences} sentences...`);
   limitMaxSentences(videoContent);
   console.log('\x1b[33m[text-bot]\x1b[0m => Fetching keywords from Watson');
-  await fetchKeywordsForAllSentences(videoContent);
+  await fetchKeywordsForAllSentences(videoContent).catch(err => console.log(err));
   console.log('\x1b[33m[text-bot] => Finished');
   state.save(videoContent);
 }

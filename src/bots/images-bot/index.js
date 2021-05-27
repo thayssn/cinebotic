@@ -9,8 +9,8 @@ async function robot() {
   console.log('\x1b[32m[images-bot]\x1b[0m => Cleaning images folder ');
   await cleanImagesFolder();
   console.log('\x1b[32m[images-bot]\x1b[0m => Fetching images from Google');
-  await fetchImagesOfAllSentences(videoContent);
-  await downloadImagesOfAllSentences(videoContent);
+  await fetchImagesOfAllSentences(videoContent).catch(err => console.log(err));
+  await downloadImagesOfAllSentences(videoContent).catch(err => console.log(err));
   console.log('\x1b[32m[images-bot] => Finished');
   state.save(videoContent);
 }

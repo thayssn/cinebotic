@@ -19,5 +19,11 @@ https://algorithmia.com/
 #### Watson Natural Language Understanding
 https://cloud.ibm.com/catalog/services/natural-language-understanding
 
+#### Google Search API
+https://console.cloud.google.com/apis/
+
+#### Programmable Search
+https://cse.google.com/cse/all
+
 ## ImageMagick
 This project requires ImageMagick to run.
